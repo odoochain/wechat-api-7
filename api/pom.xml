@@ -13,15 +13,10 @@
     <artifactId>api</artifactId>
 
 
-    <repositories>
-        <repository>
-            <id>com.teamdev</id>
-            <url>https://maven.teamdev.com/repository/products</url>
-        </repository>
-    </repositories>
 
     <properties>
         <jxbrowser.os>win64</jxbrowser.os>
+        <jxbrowser.version>7.12.2</jxbrowser.version>
     </properties>
 
 

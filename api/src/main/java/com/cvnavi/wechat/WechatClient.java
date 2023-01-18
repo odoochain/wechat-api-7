@@ -54,7 +54,7 @@ public class WechatClient implements AutoCloseable{
 
     private WechatClient(){
         JXBrowserCrack.crack();
-
+        System.setProperty("jxbrowser.license.key", "1BNDIEOFAYZEE9HQYY5M5ESGI6GCWTNOGK6CZWMWN94GQFFG96AB10J8YJC2KNKP5ZONEW");
         EngineOptions options=EngineOptions.newBuilder(HARDWARE_ACCELERATED)
                 .addSwitch("--temporary").build();
         engine = Engine.newInstance(options);

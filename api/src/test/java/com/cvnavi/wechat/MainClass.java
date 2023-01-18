@@ -1,8 +1,5 @@
 package com.cvnavi.wechat;
-import com.cvnavi.wechat.model.GroupMessage;
-import com.cvnavi.wechat.model.Member;
-import com.cvnavi.wechat.model.Message;
-import com.cvnavi.wechat.model.MsgType;
+import com.cvnavi.wechat.model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +10,7 @@ public class MainClass {
 
     public static void main(String[] args) {
         WechatClient client=WechatClient.INSTANCE;
+        MemerList memberList=new MemerList();
         client.addListener(new WechatAdapter() {
             @Override
             public void onLoginSuccess(Member user) {
@@ -29,7 +27,7 @@ public class MainClass {
                 System.out.println(log);
                 if(msg instanceof GroupMessage){
                     GroupMessage msg2=new GroupMessage(null,msg.getFrom(),MsgType.TEXT,null,"收到 "+msg.getContent());
-                    //client.sendGroupMessage(msg2);
+                    client.sendGroupMessage(msg2);
                 }else{
                     Message msg2=new Message(null,msg.getFrom(),MsgType.TEXT,null,"收到 "+msg.getContent());
                     //client.sendMessage(msg2);
@@ -50,8 +48,8 @@ public class MainClass {
                     mainFrame.loadUrl(Config.loginUrl);
                 });
 
-//                Member s=memberList.findMemberByNickName("Lee");
-//                Message msg=new Message(null,s,MsgType.TEXT,null,"哈哈");
+                Member s=memberList.findMemberByNickName("Lee");
+                Message msg=new Message(null,s,MsgType.TEXT,null,"哈哈");
 //                sendMessage(msg);
             }
         });
